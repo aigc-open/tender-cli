@@ -1,0 +1,84 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tender-cli"
+version = "1.0.0"
+description = "智能标书助手 - 通过对话完成标书全流程制作"
+authors = [
+    {name = "Tender AI Team", email = "team@tender-ai.com"}
+]
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+keywords = ["tender", "ai", "assistant", "document", "automation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "click>=8.0.0",
+    "rich>=13.0.0",
+    "openai>=1.0.0",
+    "python-docx>=0.8.11",
+    "PyPDF2>=3.0.0",
+    "markdown>=3.4.0",
+    "pydantic>=2.0.0",
+    "asyncio-mqtt>=0.11.0",
+    "aiofiles>=23.0.0",
+    "jinja2>=3.1.0",
+    "pyyaml>=6.0",
+    "requests>=2.28.0",
+    "beautifulsoup4>=4.11.0",
+    "python-multipart>=0.0.6",
+    "pydantic-ai>=1.0.0",
+    "mcp>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+tender = "tender_cli.main:main"
+
+[project.urls]
+Homepage = "https://github.com/tender-ai/tender-cli"
+Repository = "https://github.com/tender-ai/tender-cli"
+Documentation = "https://tender-ai.github.io/tender-cli"
+"Bug Tracker" = "https://github.com/tender-ai/tender-cli/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true 
